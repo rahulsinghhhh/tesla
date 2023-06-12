@@ -24,7 +24,7 @@ public class TempService {
     private final List<String> errorTempList;
 
     @Autowired
-    public TempService(final ObjectMapper objectMapper, @Qualifier(LOCAL_ERROR_DB) List<String> localErrorDb) {
+    public TempService(ObjectMapper objectMapper, @Qualifier(LOCAL_ERROR_DB) List<String> localErrorDb) {
         this.errorTempList = localErrorDb;
         this.objectMapper = objectMapper;
     }
