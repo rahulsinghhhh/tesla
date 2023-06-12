@@ -29,7 +29,7 @@ public class TempService {
         this.objectMapper = objectMapper;
     }
 
-    public Map<String, Object> addTempData(@NonNull final String tempData) throws IncorrectFormattingException{
+    public Map<String, Object> addTempData(@NonNull final String tempData) throws IncorrectFormattingException {
 
         Map<String, Object> returnMap = new HashMap<>();
 
