@@ -14,7 +14,7 @@
 	<name>tesla</name>
 	<description>Tesla Web App project for Spring Boot</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>20</java.version>
 	</properties>
 	<dependencies>
 		<dependency>

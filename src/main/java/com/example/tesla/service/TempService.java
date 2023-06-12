@@ -2,10 +2,9 @@ package com.example.tesla.service;
 
 import com.example.tesla.api.model.Temp;
 import com.example.tesla.exception.IncorrectFormattingException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NonNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -16,6 +15,8 @@ import java.util.Map;
 @Service
 public class TempService {
 
+    @Autowired
+    ObjectMapper objectMapper;
     private List<String> errorTempList;
 
     private List<String> tempList;
@@ -37,8 +38,7 @@ public class TempService {
         Map<String, String> map;
         String dataElements[] = new String[4];
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            map = mapper.readValue(temp, Map.class);
+            map = objectMapper.readValue(temp, Map.class);
             dataElements = map.get("data").split(":");
         } catch (Exception e) {
         }
@@ -75,8 +75,7 @@ public class TempService {
         Map<String, String> map;
 
         try {
-            ObjectMapper mapper = new ObjectMapper();
-            map = mapper.readValue(jsonStr, Map.class);
+            map = objectMapper.readValue(jsonStr, Map.class);
             if (map==null || map.get("data")==null) return false;
         } catch (Exception e) {
             return false;
